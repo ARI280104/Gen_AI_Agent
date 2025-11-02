@@ -1,6 +1,6 @@
 #Executing the GUI
 import streamlit as st
-#from dotenv import load_dotenv #in order to enable the .env file
+from dotenv import load_dotenv #in order to enable the .env file
 from PyPDF2 import PdfReader
 def get_pdf_text(pdf_docs): #here it is going to contain the raw texts 
     text = ""
@@ -10,7 +10,7 @@ def get_pdf_text(pdf_docs): #here it is going to contain the raw texts
             text += page.extract_text()#appending the text from each page]
     return text
 def main():
-   # load_dotenv()  # Load environment variables from .env file
+    load_dotenv()  # Load environment variables from .env file
     st.set_page_config(page_title="Gen AI", page_icon="books",)
     st.header("Chat with your Healthcare Documents")
     st.text_input("Ask a question about your documents:")
@@ -30,4 +30,5 @@ def main():
         #create vector store
         if __name__ == "__main__":
             main()
+
 
